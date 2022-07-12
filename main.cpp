@@ -42,7 +42,7 @@ int main() {
 
     fs::permissions(
             MESSAGE_FILE,
-            fs::perms::owner_all,
+            fs::perms::owner_read | fs::perms::owner_write,
             fs::perm_options::replace);
     cout << MESSAGE_FILE << " after modification" << endl;
     demo_perms(fs::status(MESSAGE_FILE).permissions());
@@ -67,7 +67,7 @@ int main() {
 
     fs::permissions(
             USER_FILE,
-            fs::perms::owner_all,
+            fs::perms::owner_read | fs::perms::owner_write,
             fs::perm_options::replace);
     cout << USER_FILE << " after modification" << endl;
     demo_perms(fs::status(USER_FILE).permissions());
